@@ -77,7 +77,7 @@ var _ = self.Stretchy = {
 					offset = parseFloat(cs.minWidth);
 				}
 
-				var width = Math.max(offset, element.scrollWidth - element.clientWidth);
+				var width = Math.max(offset, element.scrollWidth - element.clientWidth) + 1;
 
 				element.style.width = width + "px";
 
