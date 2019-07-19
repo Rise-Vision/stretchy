@@ -85,17 +85,17 @@ var _ = self.Stretchy = {
 				// huge number, and read that back to see what it was clipped to
 				// and increment width by that much, iteratively
 
-				for (var i=0; i<10; i++) { // max iterations
-					element.scrollLeft = 1e+10;
-
-					if (element.scrollLeft == 0) {
-						break;
-					}
-
-					width += element.scrollLeft;
-
-					element.style.width = width + "px";
-				}
+				// for (var i=0; i<10; i++) { // max iterations
+				// 	element.scrollLeft = 1e+10;
+				// 
+				// 	if (element.scrollLeft == 0) {
+				// 		break;
+				// 	}
+				// 
+				// 	width += element.scrollLeft;
+				// 
+				// 	element.style.width = width + "px";
+				// }
 			}
 			else {
 				// Element is invisible, just set to something reasonable
