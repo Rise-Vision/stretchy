@@ -65,7 +65,14 @@ var _ = self.Stretchy = {
 			element.style.width = "1000px";
 
 			if (element.offsetWidth) {
+				var noFlexWidth = 0;
+
 				element.style.width = "0";
+
+				noFlexWidth = element.scrollWidth;
+				element.style.flex = "auto";
+				var inputDirective = document.querySelector("stretchy-input");
+				inputDirective && (inputDirective.style.width = "100%");
 
 				if (cs.boxSizing == "border-box") {
 					offset = element.offsetWidth;
@@ -77,9 +84,11 @@ var _ = self.Stretchy = {
 					offset = parseFloat(cs.minWidth);
 				}
 
-				var width = Math.max(offset, element.scrollWidth - element.clientWidth) + 1;
+				var width = Math.min(noFlexWidth, Math.max(offset, element.scrollWidth - element.clientWidth)) + 1;
 
+				element.style.flex = "initial";
 				element.style.width = width + "px";
+				inputDirective && (inputDirective.style.width = "auto");
 
 				// To bulletproof, we will set scrollLeft to a
 				// huge number, and read that back to see what it was clipped to
