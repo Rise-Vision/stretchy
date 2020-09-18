@@ -84,7 +84,8 @@ var _ = self.Stretchy = {
 					offset = parseFloat(cs.minWidth);
 				}
 
-				var width = Math.min(noFlexWidth, Math.max(offset, element.scrollWidth - element.clientWidth)) + 1;
+        // var width = Math.min(noFlexWidth, Math.max(offset, element.scrollWidth - element.clientWidth)) + 1;
+				var width = Math.min(noFlexWidth, Math.max(offset, element.clientWidth)) + 1;
 
 				element.style.flex = "initial";
 				element.style.width = width + "px";
